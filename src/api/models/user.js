@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const validateEmail = function(email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -41,6 +42,13 @@ const UserSchema = new Schema(
   },
   { timestamps: true }
 );
+
+UserSchema.pre("save", async function(next) {
+  const hash = await bcrypt.hash(this.password, 10);
+  this.password = hash;
+
+  next();
+});
 
 module.exports = model("User", UserSchema);
 
