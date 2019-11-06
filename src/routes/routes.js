@@ -6,5 +6,6 @@ routes.get("/io", (req, res) => {
 });
 
 routes.post("/register", userController.store);
+routes.post("/user/find", userController.indexUser);
 
 module.exports = routes;

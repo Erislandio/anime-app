@@ -32,5 +32,17 @@ module.exports = {
         error
       });
     }
+  },
+  async indexUser(req, res) {
+    const { id } = req.body;
+    try {
+      const user = await User.findById({ _id: id }).select("-password");
+
+      return res.status(200).send(user);
+    } catch (error) {
+      return res.send({
+        error
+      });
+    }
   }
 };
