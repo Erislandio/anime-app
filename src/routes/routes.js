@@ -5,6 +5,6 @@ routes.get("/io", (req, res) => {
   return res.send("Olá");
 });
 
-routes.get("/register", userController.store);
+routes.post("/register", userController.store);
 
 module.exports = routes;

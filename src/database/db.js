@@ -6,7 +6,7 @@ const env = require("./.env");
 
 mongoose.connect(mongodbUri, {
   useNewUrlParser: true,
-  env
+  ...env
 });
 
 const conn = mongoose.connection;
