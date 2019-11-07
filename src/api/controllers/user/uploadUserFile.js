@@ -3,25 +3,13 @@ const fs = require("fs");
 
 module.exports = {
   async saveFile(req, res) {
-    const { file, email } = req.body;
+    const { file } = req;
+    const { email } = req.body;
 
     try {
-      const userFind = await User.findOne({ email });
-      console.log(userFind);
+      const update = { img: { data: fs.readFileSync(file.path) } };
 
-      if (!userFind) {
-        return res.send({
-          error: true,
-          message: "Usuário não encontrado!"
-        });
-      }
-
-      await userFind.updateOne({
-        img: {
-          data: fs.readFileSync(file.path),
-          contentType: "image/png"
-        }
-      });
+      const userFind = await User.findOneAndUpdate(email, update);
 
       await userFind.save();
 
