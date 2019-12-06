@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Simple Node Sandbox",
   "main": "src/index.js",
-  "scripts": {
-    "build": "nodemon src/index.js"
-  },
   "dependencies": {
     "bcrypt": "3.0.6",
     "bcryptjs": "2.4.3",
