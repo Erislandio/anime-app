@@ -11,7 +11,6 @@ app.use(morgan());
 app.use(routes);
 app.use(cors());
 
-
 app.listen(port, () => {
   console.log("Running");
   require("./database/db");
