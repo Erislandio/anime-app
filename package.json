@@ -4,7 +4,9 @@
   "description": "Simple Node Sandbox",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node_modules/.bin/pm2 start src/index.js --watch",
+    "build": "node_modules/.bin/pm2 start src/index.js"
   },
   "dependencies": {
     "bcrypt": "3.0.6",
@@ -18,9 +20,12 @@
     "mongoose": "5.7.8",
     "morgan": "1.9.1",
     "multer": "1.4.2",
-    "multer-gridfs-storage": "4.0.0"
+    "multer-gridfs-storage": "4.0.0",
+    "pm2": "^4.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
   }
 }
+
+
