@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js localhost 8080",
-    "build": "nodemon src/index.js localhost 8080"
+    "build": "next --port $PORT"
   },
   "dependencies": {
     "bcrypt": "3.0.6",
