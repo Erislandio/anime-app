@@ -4,7 +4,9 @@
   "description": "Simple Node Sandbox",
   "main": "src/index.js",
   "scripts": {
-    "build": " node_modules/.bin/nodemon src/index.js"
+    "build": " node_modules/.bin/nodemon src/index.js",
+    "dev": " node_modules/.bin/nodemon src/index.js"
+
   },
   "dependencies": {
     "bcrypt": "3.0.6",
