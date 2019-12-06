@@ -17,10 +17,12 @@ module.exports = {
       const user = await User.findOne({ email }).select("+password");
 
       if (!user)
-        return res.send({ error: "Usuário não encontrado / email errado" });
+        return res
+          .status(200)
+          .send({ error: "Usuário não encontrado / email errado" });
 
       if (!(await bcrypt.compare(password, user.password)))
-        return res.send({ error: "Senha incorreta" });
+        return res.status(200).send({ error: "Senha incorreta" });
 
       res.status(200).send({
         user,
