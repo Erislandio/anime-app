@@ -38,7 +38,17 @@ const UserSchema = new Schema(
     },
     birth: {
       type: String
-    }
+    },
+    favorites: [
+      {
+        data: {
+          type: String
+        },
+        id: {
+          type: Number
+        }
+      }
+    ]
   },
   { timestamps: true }
 );
