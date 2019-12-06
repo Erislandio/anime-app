@@ -9,7 +9,9 @@ module.exports = {
     try {
       const update = { img: { data: fs.readFileSync(file.path) } };
 
-      const userFind = await User.findOneAndUpdate(email, update);
+      const userFind = await User.findOneAndUpdate(email, update).select(
+        "-password"
+      );
 
       await userFind.save();
 
